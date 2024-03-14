@@ -18,6 +18,7 @@ const MainImg = () => {
 					<span className='text-c-1'>Healthy</span> Food <br /> Made Easy
 				</h1>
 				<Link
+					name='menu'
 					to={"/Menu"}
 					className='bg-c-1 p-3  text-black font-semibold   rounded-xl text-lg'>
 					Place Your Order Now
