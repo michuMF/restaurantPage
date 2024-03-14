@@ -14,23 +14,24 @@ const MenuFilter = () => {
 	return (
 		<div className='  w-[100%] mx-auto md:w-full p-2 my-1 border-4 border-black rounded-lg bg-black text-c-4 '>
 			<ul className='flex relative  justify-around text-xl font-semibold  items-center '>
-				<div className='absolute  sm:-left-20 md:-left-10  xl:text-black xl:-left-[140px]  text-c-1  w-[200px] z-0  text-center  '>
+				<li className='absolute  bg-  sm:-left-90 md:-left-8  xl:text-black xl:-left-[140px]  text-c-1  w-[100px] z-0  text-center  '>
 					<button
 						onClick={() => {
 							setMenu(MenuData)
 						}}>
 						<MdOutlineRestaurantMenu className='text-4xl  ' />
 					</button>
-				</div>
+				</li>
 				{uniqueTags.map(tag => (
-					<button
-						className='uppercase z-10 '
-						onClick={() => {
-							setMenu(MenuData.filter(dish => dish.categories === tag))
-						}}
-						key={tag}>
-						{tag}
-					</button>
+					<li key={tag}>
+						<button
+							className='uppercase z-40 hover:scale-110 hover:text-c-1 transition-all '
+							onClick={() => {
+								setMenu(MenuData.filter(dish => dish.categories === tag))
+							}}>
+							{tag}
+						</button>
+					</li>
 				))}
 			</ul>
 		</div>

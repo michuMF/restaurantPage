@@ -38,7 +38,7 @@ const Menu = () => {
 				{sumAmount > 0 && (
 					<Link
 						to='/Payment'
-						className={`fixed  bottom-20 left-1/2 -translate-x-1/2  text-white p-3 px-6 bg-black rounded-2xl`}>
+						className={`fixed md:hidden  bottom-20 left-1/2 -translate-x-1/2  text-white p-3 px-6 bg-black rounded-2xl`}>
 						Order {sumAmount} for ${sumPrice}.00
 					</Link>
 				)}
