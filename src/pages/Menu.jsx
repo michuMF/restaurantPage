@@ -5,8 +5,17 @@ import Section from "../components/Section"
 import MenuFilter from "../components/Menu/MenuFilter"
 
 const Menu = () => {
-	const [, menuContext] = useOutletContext()
+	const [basketContext, menuContext] = useOutletContext()
 
+	const { basket } = basketContext
+	const sumPrice = basket.reduce(
+		(totalPrice, item) => totalPrice + item.price,
+		0
+	)
+	const sumAmount = basket.reduce(
+		(totalNumberAmount, item) => totalNumberAmount + item.amount,
+		0
+	)
 	const { menu } = menuContext
 	return (
 		<Section className=''>
@@ -26,6 +35,13 @@ const Menu = () => {
 						<AddToBasket dish={dish} key={dish.id} />
 					</div>
 				))}
+				{sumAmount > 0 && (
+					<Link
+						to='/Payment'
+						className={`fixed  bottom-20 left-1/2 -translate-x-1/2  text-white p-3 px-6 bg-black rounded-2xl`}>
+						Order {sumAmount} for ${sumPrice}.00
+					</Link>
+				)}
 			</div>
 		</Section>
 	)
